@@ -29,3 +29,18 @@ VALUES ('nm0000005', 'Ingmar Bergman', 1918, 2007, 'writer,director,actor', 'tt0
 
 -- SELECT ALL FROM imdb 
 SELECT * FROM imdb_people;
+
+-- People whose primary name contains "Bergman" 
+SELECT primaryname
+FROM imdb_people
+WHERE primaryname LIKE '%Bergman%';
+
+-- People born in the 1900s (1900-1999)
+SELECT primaryname, birthyear
+FROM imdb_people
+WHERE birthyear BETWEEN 1900 AND 1999;
+
+-- People who died at age 70 or older (calculate age as deathYear - birthYear)
+SELECT primaryname, birthyear, deathyear
+FROM imdb_people
+WHERE (deathyear - birthyear) >= 70;
